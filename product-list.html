@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Product List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="products.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            Vineyards Vines
+        </div>
+        <div class="header-right">
+            <a href="home-page.html">Home</a>
+            <a href="product-list.html">Products</a>
+        </div>
+    </div>
+    <div class="allProducts">
+        <div class="product-1">
+                <img id="product-1-image" class="product-image" src="" alt="">
+                <h4 id="product-1-name"></h4>
+                <h5 id="product-1-price"></h5>
+            </div>
+            <div class="product-2">
+                <img id="product-2-image" class="product-image" src="" alt="">
+                <h4 id="product-2-name"></h4>
+                <h5 id="product-2-price"></h5>
+            </div>
+            <div class="product-3">
+                <img id="product-3-image" class="product-image" src="" alt="">
+                <h4 id="product-3-name"></h4>
+                <h5 id="product-3-price"></h5>
+            </div>
+    </div>
+    <div class="About">
+        <div class="About-Text">
+
+        </div>
+        <div class="About-Right">
+            <h3>Contact Us</h3>
+            <h4>Phone: 1 (800) 892-4982</h4>
+            <h5> Address: 275 King St, Charleston, SC 29401</h5>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+<script>
+for(var i=0;i<8;i++){
+        $("#product-" + (i + 1) + "-image").attr("src", products[i].imageUrl);
+        $("#product-"+(i+1)+"-name").text(products[i].name);
+        $("#product-"+(i+1)+"-price").text("$"+products[i].price);
+    }
+
+    function showProducts(page) {
+        for (let i = 1; i < 9; i++) {
+            let j = i + ((page - 1) * 8);
+            $("#product-" + i  + "-image").attr("src", products[i].imageUrl);
+            $("#product-"+i+"-name").text(products[i].name);
+            $("#product-"+i+"-price").text("$"+products[i].price);
+        }
+    }
+</script>
+<style>
+
+.product-image {
+    max-height: 200px;
+}
+
+.allProducts {
+    display: inline-block;
+    /*background-color:blue;*/
+}
+</style>
