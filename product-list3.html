@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Product List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="products.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            Vineyards Vines
+        </div>
+        <div class="header-right">
+            <a href="home-page.html">Home</a>
+            <a href="product-list.html">Products</a>
+        </div>
+    </div>
+    <div class="allProducts">
+        <div class="product-17">
+                <img id="product-17-image" class="product-image" src="" alt="">
+                <h4 id="product-17-name"></h4>
+                <h5 id="product-17-price"></h5>
+            </div>
+            <div class="product-18">
+                <img id="product-18-image" class="product-image" src="" alt="">
+                <h4 id="product-18-name"></h4>
+                <h5 id="product-18-price"></h5>
+            </div>
+            <div class="product-19">
+                <img id="product-19-image" class="product-image" src="" alt="">
+                <h4 id="product-19-name"></h4>
+                <h5 id="product-19-price"></h5>
+            </div>
+            <div class="product-20">
+                <img id="product-20-image" class="product-image" src="" alt="">
+                <h4 id="product-20-name"></h4>
+                <h5 id="product-20-price"></h5>
+            </div>
+            <div class="product-21">
+                <img id="product-21-image" class="product-image" src="" alt="">
+                <h4 id="product-21-name"></h4>
+                <h5 id="product-21-price"></h5>
+            </div>
+            <div class="product-22">
+                <img id="product-22-image" class="product-image" src="" alt="">
+                <h4 id="product-22-name"></h4>
+                <h5 id="product-22-price"></h5>
+            </div>
+            <div class="product-23">
+                <img id="product-23-image" class="product-image" src="" alt="">
+                <h4 id="product-23-name"></h4>
+                <h5 id="product-23-price"></h5>
+            </div>
+            <div class="product-24">
+                <img id="product-24-image" class="product-image" src="" alt="">
+                <h4 id="product-24-name"></h4>
+                <h5 id="product-24-price"></h5>
+            </div>
+            <div><a href="product-list1.html">Next</a></div>
+            <div><a href="product-list2.html">Previous</a></div>
+    </div>
+    <div class="About">
+            <h3>About</h3>
+            <div class="About-Text">
+                In 1998, we were stuck behind desk jobs we didn’t like…
+                and, we were miserable. So, we quit.
+    
+                We tossed out business suits for bathing suits, 
+                got our wisdom teeth pulled while we still had 
+                coverage and signed up 
+                for every credit card we could. On the same day, within 
+                ten minutes of 
+                each other, we walked out of our jobs, grabbed a drink 
+                and started 
+                chasing the American Dream.
+        </div>
+        <div class="About-Right">
+            <h3>Contact Us</h3>
+            <h4>Phone: 1 (800) 892-4982</h4>
+            <h5> Address: 275 King St, Charleston, SC 29401</h5>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+<script>
+for(var i=16;i<24;i++){
+        $("#product-" + (i + 1) + "-image").attr("src", products[i].imageUrl);
+        $("#product-"+(i+1)+"-name").text(products[i].name);
+        $("#product-"+(i+1)+"-price").text("$"+products[i].price);
+    }
+
+    function showProducts(page) {
+        for (let i = 1; i < 9; i++) {
+            let j = i + ((page - 1) * 8);
+            $("#product-" + i  + "-image").attr("src", products[i].imageUrl);
+            $("#product-"+i+"-name").text(products[i].name);
+            $("#product-"+i+"-price").text("$"+products[i].price);
+        }
+    }
+</script>
+<style>
+html{
+    background-color: green;
+}
+.product-image {
+    max-height: 200px;
+}
+
+.product-17 {
+    display: inline-block;
+    background-color:blue;
+}
+
+.product-18 {
+    display: inline-block;
+    background-color:blue;
+}
+.product-19 {
+    display: inline-block;
+    background-color:blue;
+}
+.product-20 {
+    display: inline-block;
+    background-color:blue;
+}
+.product-21 {
+    display: inline-block;
+    background-color:blue;
+}
+.product-22 {
+    display: inline-block;
+    background-color:blue;
+}
+.product-23 {
+    display: inline-block;
+    background-color:blue;
+}
+.product-24 {
+    display: inline-block;
+    background-color:blue;
+}
+</style>
