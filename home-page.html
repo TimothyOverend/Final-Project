@@ -11,11 +11,11 @@
 <body>
     <div class="header">
         <div class="header--left">
-            Vinyard Vines Products
+           <h2> Vinyard Vines Products</h2>
         </div>
         <div class="header--right">
-            <a href="home-page.html">Home</a>
-            <a href="product-list1.html">Products</a>
+            <a href="home-page.html"style="color:black">Home</a>
+            <a href="product-list1.html"style="color:black">Products</a>
         </div>
     </div>
     <div class="title">
@@ -23,10 +23,10 @@
             <img id="title-image" class="product-image" src="" alt="">
         </div>
         <div class="title--right">
-            <h6>Featured Product</h6>
-            <h1 id="main-product-title">Product Title Here</h1>
+            <h4>Featured Product</h4>
+            <h6 id="main-product-title">Product Title Here</h6>
             <p id="main-product-description">Main Description</p>
-            <a id="main-product-link" href="product-details.html"></a>
+            <a id="main-product-link" href="product-details.html"style="color:black"></a>
         </div>
     </div>
     <div class="products">
@@ -34,21 +34,21 @@
         <div class="product-list">
             <div class="product product-1">
                 <img id="product-1-image" class="product-image" src="" alt="">
-                <h4 id="product-1-name"></h4>
+                <a id="product-1-name"href=""style="color:darkslategray"></a>
                 <h5 id="product-1-price"></h5>
             </div>
             <div class="product product-2">
                 <img id="product-2-image" class="product-image" src="" alt="">
-                <h4 id="product-2-name"></h4>
+                <a id="product-2-name"href=""style="color:darkslategray"></a>
                 <h5 id="product-2-price"></h5>
             </div>
             <div class="product product-3">
                 <img id="product-3-image" class="product-image" src="" alt="">
-                <h4 id="product-3-name"></h4>
+                <a id="product-3-name"href=""style="color:darkslategray"></a>
                 <h5 id="product-3-price"></h5>
             </div>
         </div>
-        <a href="product-list1.html">View All Products</a>
+        <a href="product-list1.html"style="color:black">View All Products</a>
         
     </div>
     <div class="About">
@@ -73,6 +73,7 @@
             <h5> Address: 275 King St, Charleston, SC 29401</h5>
         </div>
     </div>
+    <a></a>
 </body>
 </html>
 <script>
@@ -86,24 +87,25 @@
     for(var i=0;i<3;i++){
         $("#product-" + (i + 1) + "-image").attr("src", products[i].imageUrl);
         $("#product-"+(i+1)+"-name").text(products[i].name);
+        $("#product-"+(i+1)+"-name").attr("href", 'product-details.html?productName=' + products[i].name);
         $("#product-"+(i+1)+"-price").text("$"+products[i].price);
     }
     // end
     console.log('products', products);
 
-    function showProducts(page) {
-        for (let i = 1; i < 9; i++) {
-            let j = i + ((page - 1) * 8);
-            $("#product-" + i  + "-image").attr("src", products[i].imageUrl);
-            $("#product-"+i+"-name").text(products[i].name);
-            $("#product-"+i+"-price").text("$"+products[i].price);
-        }
-    }
+    // function showProducts(page) {
+    //     for (let i = 1; i < 9; i++) {
+    //         let j = i + ((page - 1) * 8);
+    //         $("#product-" + i  + "-image").attr("src", products[i].imageUrl);
+    //         $("#product-"+i+"-name").attr("href", 'product-details.html?productName=' + products[j].name);
+    //         $("#product-"+i+"-price").text("$"+products[i].price);
+    //     }
+    // }
 </script>
 
 <style>
     html {
-        background-color: green;
+        background-color: whitesmoke;
     }
 
     .product-image {
@@ -112,8 +114,19 @@
 
     .product {
         display: inline-block;
-        background-color:blue;
+        background-color:pink;
         /* background-image: url(""); */
+    }
+
+    @media only screen and (max-width: 700px)  {
+        html {
+            background-color: pink;
+
+        }
+        .product{
+            display: inline-block;
+            background-color: whitesmoke;
+        }
     }
 
 </style>

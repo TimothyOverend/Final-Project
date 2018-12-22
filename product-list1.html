@@ -11,56 +11,57 @@
 <body>
     <div class="header">
         <div class="header-left">
-            Vineyards Vines
+           <h2> Vineyards Vines</h2>
         </div>
         <div class="header-right">
-            <a href="home-page.html">Home</a>
-            <a href="product-list.html">Products</a>
+            <a href="home-page.html"style="color:black">Home</a>
+            <a href="product-list1.html"style="color:black">Products</a>
+           
         </div>
     </div>
     <div class="allProducts">
         <div class="product-1">
                 <img id="product-1-image" class="product-image" src="" alt="">
-                <h4 id="product-1-name"></h4>
+                <a id="product-1-name" href=""style="color:darkslategray"></a>
                 <h5 id="product-1-price"></h5>
             </div>
             <div class="product-2">
                 <img id="product-2-image" class="product-image" src="" alt="">
-                <h4 id="product-2-name"></h4>
+                <a id="product-2-name" href=""style="color:darkslategray"></a>
                 <h5 id="product-2-price"></h5>
             </div>
             <div class="product-3">
                 <img id="product-3-image" class="product-image" src="" alt="">
-                <h4 id="product-3-name"></h4>
+                <a id="product-3-name" href=""style="color:darkslategray"></a>
                 <h5 id="product-3-price"></h5>
             </div>
             <div class="product-4">
                 <img id="product-4-image" class="product-image" src="" alt="">
-                <h4 id="product-4-name"></h4>
+                <a id="product-4-name" href=""style="color:darkslategray"></a>
                 <h5 id="product-4-price"></h5>
             </div>
             <div class="product-5">
                 <img id="product-5-image" class="product-image" src="" alt="">
-                <h4 id="product-5-name"></h4>
+                <a id="product-5-name" href=""style="color:darkslategray"></a>
                 <h5 id="product-5-price"></h5>
             </div>
             <div class="product-6">
                 <img id="product-6-image" class="product-image" src="" alt="">
-                <h4 id="product-6-name"></h4>
+                <a id="product-6-name" href=""style="color:darkslategray"></a>
                 <h5 id="product-6-price"></h5>
             </div>
             <div class="product-7">
                 <img id="product-7-image" class="product-image" src="" alt="">
-                <h4 id="product-7-name"></h4>
+                <a id="product-7-name" href=""style="color:darkslategray"></a>
                 <h5 id="product-7-price"></h5>
             </div>
             <div class="product-8">
                 <img id="product-8-image" class="product-image" src="" alt="">
-                <h4 id="product-8-name"></h4>
+                <a id="product-8-name" href="" style="color:darkslategray"></a>
                 <h5 id="product-8-price"></h5>
             </div>
-            <div><a href="product-list2.html">Next</a></div>
-            <div><a href="product-list3.html">Previous</a></div>
+            <div><button id="next-button">Next</button></div>
+            <div><button id="previous-button">Previous</button></div>
     </div>
     <div class="About">
         <h3>About</h3>
@@ -89,24 +90,60 @@
 </body>
 </html>
 <script>
-for(var i=0;i<8;i++){
-        $("#product-" + (i + 1) + "-image").attr("src", products[i].imageUrl);
-        $("#product-"+(i+1)+"-name").text(products[i].name);
-        $("#product-"+(i+1)+"-price").text("$"+products[i].price);
-    }
+    // for(var i=0;i<8;i++){
+    //     $("#product-" + (i + 1) + "-image").attr("src", products[i].imageUrl);
+    //     $("#product-"+(i+1)+"-name").text(products[i].name);
+    //     $("#product-"+(i+1)+"-price").text("$"+products[i].price);
+    // }
 
-    function showProducts(page) {
+    // for(var i=8;i<16;i++){
+    //     $("#product-" + (i + 1) + "-image").attr("src", products[i].imageUrl);
+    //     $("#product-"+(i+1)+"-name").text(products[i].name);
+    //     $("#product-"+(i+1)+"-price").text("$"+products[i].price);
+    // }
+
+    let pageNumber = 0;
+
+    function showProducts(pageNumber) {
         for (let i = 1; i < 9; i++) {
-            let j = i + ((page - 1) * 8);
-            $("#product-" + i  + "-image").attr("src", products[i].imageUrl);
-            $("#product-"+i+"-name").text(products[i].name);
-            $("#product-"+i+"-price").text("$"+products[i].price);
+            let j = i - 1 + (pageNumber * 8);
+            $("#product-" + i  + "-image").attr("src", products[j].imageUrl);
+            $("#product-"+i+"-name").text(products[j].name);
+            $("#product-"+i+"-name").attr("href", 'product-details.html?productName=' + products[j].name);
+            $("#product-"+i+"-price").text("$"+products[j].price);
         }
     }
+
+    showProducts(pageNumber);
+
+    // if next, then pageNumber++
+    $('#next-button').click(pageIncrease);
+    $('#previous-button').click(pageDecrease);
+
+    function pageIncrease(){      
+        pageNumber++;
+        if(pageNumber>2){
+            pageNumber=0;
+        } else if(pageNumber<0){
+            pageNumber=2;
+        }
+        showProducts(pageNumber);
+    }
+
+    function pageDecrease() {
+        pageNumber--;
+        if(pageNumber>2){
+            pageNumber=0;
+        } else if(pageNumber<0){
+            pageNumber=2;
+        }   
+        showProducts(pageNumber);  
+    }
+
 </script>
 <style>
 html{
-    background-color: green;
+    background-color: whitesmoke;
 }
 .product-image {
     max-height: 200px;
@@ -114,35 +151,46 @@ html{
 
 .product-1 {
     display: inline-block;
-    background-color:blue;
+    background-color:pink
 }
 
 .product-2 {
     display: inline-block;
-    background-color:blue;
+    background-color:pink;
 }
 .product-3 {
     display: inline-block;
-    background-color:blue;
+    background-color:pink;
 }
 .product-4 {
     display: inline-block;
-    background-color:blue;
+    background-color:pink;
 }
 .product-5 {
     display: inline-block;
-    background-color:blue;
+    background-color:pink;
 }
 .product-6 {
     display: inline-block;
-    background-color:blue;
+    background-color:pink;
 }
 .product-7 {
     display: inline-block;
-    background-color:blue;
+    background-color:pink;
 }
 .product-8 {
     display: inline-block;
-    background-color:blue;
+    background-color:pink;
 }
+
+@media only screen and (max-width: 700px)  {
+        html {
+            background-color: pink;
+
+        }
+        .product{
+            display: inline-block;
+            background-color: whitesmoke;
+        }
+    }
 </style>

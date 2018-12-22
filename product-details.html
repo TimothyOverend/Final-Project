@@ -5,10 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Product Details</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="products.js"></script>
 </head>
 <body>
-    <div>
-        Product Details
+    <div class="header">
+        <div class="header-left">
+           <h2> Product Details</h2>
+        </div>
+        <div class="header-right">
+            <a href="home-page.html"style="color:black">Home</a>
+            <a href="product-list1.html"style="color:black">Products</a>
+           
+        </div>
+    <div class="product">
+        <img id="product-image" class="product-image" src="" alt="">
+        <h4 id="product-name" ></h4>
+        <h5 id="product-price"></h5>
     </div>
+    <div class="About">
+        <h3>About</h3>
+        <div class="About-Text">
+            In 1998, we were stuck behind desk jobs we didn’t like…
+            and, we were miserable. So, we quit.
+
+            We tossed out business suits for bathing suits, 
+            got our wisdom teeth pulled while we still had 
+            coverage and signed up 
+            for every credit card we could. On the same day, within 
+            ten minutes of 
+            each other, we walked out of our jobs, grabbed a drink 
+            and started 
+            chasing the American Dream.
+        </div>
+        <div class="About-Right">
+            <h3>Contact Us</h3>
+            <h4>Phone: 1 (800) 892-4982</h4>
+            <h5> Address: 275 King St, Charleston, SC 29401</h5>
+        </div>
+    </div>
+
 </body>
 </html>
+
+<script>
+    function getProductInfoFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('productName');
+
+        const productObject = products.find(function(product) {
+            return product.name === productName;
+        });
+
+        return productObject;
+    }
+
+    let product = getProductInfoFromUrl();
+
+    // here you can use jquery to attach the image and url and stuff
+    $("#product-image").attr("src", getProductInfoFromUrl());
+    //$("#product-name").text(getProductInfoFromUrl());
+    $("#product-price").text("$"+products[1].price);
+
+</script>
+<style>
+.product-image {
+    max-height: 200px;
+}
+</style>
