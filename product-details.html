@@ -63,13 +63,27 @@
     let product = getProductInfoFromUrl();
 
     // here you can use jquery to attach the image and url and stuff
-    $("#product-image").attr("src", getProductInfoFromUrl());
-    //$("#product-name").text(getProductInfoFromUrl());
-    $("#product-price").text("$"+products[1].price);
+    $("#product-image").attr("src", product.imageUrl);
+    $("#product-name").text(product.name);
+    $("#product-price").text("$"+product.price);
 
 </script>
 <style>
 .product-image {
     max-height: 200px;
+    background-color:whitesmoke;
 }
+html{
+    background-color:pink;
+}
+@media only screen and (max-width: 700px)  {
+        html {
+            background-color: whitesmoke;
+
+        }
+        .product{
+            display: inline-block;
+            background-color: lightcoral;
+        }
+    }
 </style>
